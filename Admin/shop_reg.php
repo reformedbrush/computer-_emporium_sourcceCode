@@ -1,6 +1,6 @@
 <h1>Shop Registration</h1>
 
-<table width="290" height="327" border="1">
+<table width="290" height="317" border="1">
   <tr>
     <td width="110">Shop Name</td>
     <td width="168"><form name="form2" method="post" action="">
@@ -33,7 +33,7 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><form name="form1" method="post" action="">
+    <td height="40" colspan="2"><form name="form1" method="post" action="">
       <input type="submit" name="SUBMIT" id="SUBMIT" value="Submit">
       <input type="submit" name="Cancel" id="Cancel" value="Cancel">
     </form></td>
