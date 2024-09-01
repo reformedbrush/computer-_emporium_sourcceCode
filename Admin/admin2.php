@@ -1,77 +1,66 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link rel="stylesheet" href="admin_reg.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <?php
-include("../assets/connection/connection.php");
-	
+include("../Assets/Connection/Connection.php");
+
 if(isset($_POST["btn_submit"]))
 {
-	$name=$_POST["admin_name"];
-	$email=$_POST["admin_email"];
-	$password=$_POST["admin_password"];
-	
-	
+	$name=$_POST["txt_name"];
+	$email=$_POST["txt_email"];
+	$password=$_POST["txt_password"];
 	$insQry="insert into tbl_admin(admin_name,admin_email,admin_password) values('".$name."','".$email."','".$password."')";
-	echo $insQry;
-	if($con->query($insQry))
+	if($Con->query($insQry))
 	{
 		echo "inserted";
 	}
-	  
 }
 if(isset($_GET["did"]))
 {
 	$did=$_GET["did"];
 	$delQry="delete from tbl_admin where admin_id=".$did;
-	if($con->query($delQry))
+	if($Con->query($delQry))
 	{
-		?>
-        <script>
-		//window.location="Admin_reg.php";
-		</script>
-        <?php
+		header("location:AdminRegistration.php");
 	}
 }
 ?>
 </head>
-
 <body>
-<h1>Admin Registration</h1><br />
-<form id="form2" name="form2" method="post" action="">
-<table id="table" width="276" border="1">
+<form id="form1" name="form1" method="post" action="">
+<table width="200" border="1">
   <tr>
-    <td width="169">Name</td>
-    <td width="91">
-      <label for="admin_name"></label>
-      <input type="text" name="admin_name" id="admin_name" />
-    </td>
+    <td>Name</td>
+    <td>
+      <label for="txt_name"></label>
+      <input type="text" name="txt_name" id="txt_name" />
+ </td>
   </tr>
   <tr>
-    <td>E-Mail</td>
-    <td><form id="form3" name="form3" method="post" action="">
-      <label for="admin_email"></label>
-      <input type="text" name="admin_email" id="admin_email" />
+    <td>Email</td>
+    <td>
+      <label for="txt_email"></label>
+      <input type="text" name="txt_email" id="txt_email" />
     </td>
   </tr>
   <tr>
     <td>Password</td>
     <td>
-      <label for="admin_password"></label>
-      <input type="text" name="admin_password" id="admin_password" />
-    </td>
+          <label for="txt_password"></label>
+      <input type="text" name="txt_password" id="txt_password" />
+   </td>
   </tr>
   <tr>
-    <td colspan="2">
-      <div align="center">
-        <input type="submit" name="btn_submit" id="btn_submit" value="Submit" />
-        <input type="submit" name="Cancel" id="Cancel" value="Cancel" />
-      </div>
+    <td colspan="2" align="center" ><form id="form4" name="form4" method="post" action="">
+      <input type="submit" name="btn_submit" id="btn_submit" value="Submit" />
+      <input type="submit" name="btn_cancel" id="btn_cancel" value="Cancel" />
     </td>
   </tr>
-</table><br>
+</table>
+</form>
 <form id="form1" name="form1" method="post" action="">
   <table width="494" border="1">
     <tr>
@@ -83,7 +72,7 @@ if(isset($_GET["did"]))
     </tr>
     <?php 
 		  $selQry="select * from tbl_admin";
-		  $result=$con->query($selQry);
+		  $result=$Con->query($selQry);
 		  $i=0;
 		  while($data=$result->fetch_assoc())
 		  {
@@ -100,7 +89,6 @@ if(isset($_GET["did"]))
 		  }
 	?>
   </table>
-
 </form>
 </body>
-
+</html>

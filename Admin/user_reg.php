@@ -27,6 +27,7 @@ if(isset($_POST["btn_submit"]))
 </head>
 
 <body>
+<h1> USER REGISTRATION</h1>
 <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
   <table width="200" border="1">
     <tr>
@@ -84,6 +85,34 @@ if(isset($_POST["btn_submit"]))
     </tr>
   </table>
 </form>
+<form id="form1" name="form1" method="post" action="">
+  <table width="494" border="1">
+    <tr>
+      <td width="90" height="32">SlNo</td>
+      <td width="90">Name</td>
+      <td width="90">Email</td>
+      <td width="90">Password</td>
+      <td width="90">Action</td>
+    </tr>
+    <?php 
+		  $selQry="select * from tbl_user";
+		  $result=$con->query($selQry);
+		  $i=0;
+		  while($data=$result->fetch_assoc())
+		  {
+			  $i++;
+	?>
+    <tr>
+      <td><?php echo $i; ?></td>
+      <td><?php echo $data["user_name"]; ?></td>
+      <td><?php echo $data["user_email"]; ?></td>
+      <td><?php echo $data["user_password"]; ?></td>
+      <td><a href="AdminRegistration.php?did=<?php echo $data["user_id"]; ?>">Delete</a></td>
+    </tr>
+    <?php
+		  }
+	?>
+  </table>
 </body>
  <script src="../Assets/JQ/jQuery.js"></script>
 <script>
@@ -96,6 +125,7 @@ if(isset($_POST["btn_submit"]))
       }
     });
   }
+  
 
 </script>
 </html>

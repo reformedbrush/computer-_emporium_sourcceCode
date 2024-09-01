@@ -37,6 +37,7 @@
 	}
 ?>
 <body>
+<h1>LOGIN</h1>
 <form name="form1" method="post" action="">
   <table width="200" border="1">
     <tr>
@@ -47,7 +48,7 @@
     <tr>
       <td>Password</td>
       <td><label for="password"></label>
-      <input type="text" name="password" id="password"></td>
+      <input type="password" name="password" id="password"></td>
     </tr>
     <tr>
       <td colspan="2"><div align="center">
