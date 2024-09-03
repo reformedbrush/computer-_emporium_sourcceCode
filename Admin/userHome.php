@@ -20,7 +20,7 @@ text-align:right;
 <br />
 <hr />
 <div id="profile">
-<a href="aprofile.php">My Profile</a>
+<a href="uProfile.php">My Profile</a>
 </div>
 <br /><br />
 </body>

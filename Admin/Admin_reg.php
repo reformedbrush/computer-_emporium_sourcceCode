@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="admin_reg.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
+<style>
+body{
+	text-align:center;
+}
+</style>
 <?php
 include("../assets/connection/connection.php");
 	
@@ -17,23 +22,24 @@ if(isset($_POST["btn_submit"]))
 	$insQry="insert into tbl_admin(admin_name,admin_email,admin_password) values('".$name."','".$email."','".$password."')";
 	echo $insQry;
 	if($con->query($insQry))
-	{
-		echo "inserted";
+	{?>
+		<script>
+	    alert("Data Inserted..")
+	    window.location="Admin_reg.php";
+	    </script>
 	}
 	  
 }
-if(isset($_GET["did"]))
-{
-	$did=$_GET["did"];
-	$delQry="delete from tbl_admin where admin_id=".$did;
-	if($con->query($delQry))
-	{
-		?>
-        <script>
-		//window.location="Admin_reg.php";
-		</script>
-        <?php
-	}
+<?php
+if(isset($_GET['did'])) {
+  $did = $_GET['did'];
+  $delQry="delete from tbl_admin where admin_id = ".$did;
+  if($con->query($delQry)) {
+    header("location:Admin_reg.php");
+    exit();
+  }
+}
+}
 }
 ?>
 </head>
@@ -41,7 +47,7 @@ if(isset($_GET["did"]))
 <body>
 <h1>Admin Registration</h1><br />
 <form id="form2" name="form2" method="post" action="">
-<table id="table" width="276" border="1">
+<table id="table" width="276" border="1" align="center">
   <tr>
     <td width="169">Name</td>
     <td width="91">
@@ -71,9 +77,9 @@ if(isset($_GET["did"]))
       </div>
     </td>
   </tr>
-</table><br>
+</table><br><br />
 <form id="form1" name="form1" method="post" action="">
-  <table width="494" border="1">
+  <table width="494" border="1" align="center">
     <tr>
       <td width="90" height="32">SlNo</td>
       <td width="90">Name</td>
@@ -94,7 +100,7 @@ if(isset($_GET["did"]))
       <td><?php echo $data["admin_name"]; ?></td>
       <td><?php echo $data["admin_email"]; ?></td>
       <td><?php echo $data["admin_password"]; ?></td>
-      <td><a href="AdminRegistration.php?did=<?php echo $data["admin_id"]; ?>">Delete</a></td>
+      <td><a href="Admin_reg.php?did=<?php echo $data["admin_id"]; ?>">Delete</a></td>
     </tr>
     <?php
 		  }

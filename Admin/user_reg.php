@@ -18,6 +18,15 @@ if(isset($_POST["btn_submit"]))
 	}
 	
 }
+if(isset($_GET['did'])) {
+  $did = $_GET['did'];
+  $delQry="delete from tbl_user where user_id = ".$did;
+  if($con->query($delQry)) {
+    header("location:user_reg.php");
+    exit();
+  }
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,9 +36,9 @@ if(isset($_POST["btn_submit"]))
 </head>
 
 <body>
-<h1> USER REGISTRATION</h1>
+<h1 align="center"> USER REGISTRATION</h1>
 <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
-  <table width="200" border="1">
+  <table width="200" border="1" align="center">
     <tr>
       <td>Name</td>
       <td><label for="txt_name"></label>
@@ -71,22 +80,18 @@ if(isset($_POST["btn_submit"]))
           <option>--Select--</option>
         
       </select></td>
-    </tr>
-    <tr>
-      <td>Photo</td>
-      <td><label for="photo"></label>
-      <input type="file" name="file_photo" id="file_photo" /></td>
-    </tr>
+    </tr
     <tr>
       <td colspan="2"><div align="center">
         <input type="submit" name="btn_submit" id="btn_submit" value="Submit" />
         <input type="submit" name="btn_cancel" id="btn_cancel" value="Cancel" />
       </div></td>
     </tr>
-  </table>
+  </table><br />
+  
 </form>
 <form id="form1" name="form1" method="post" action="">
-  <table width="494" border="1">
+  <table width="494" border="1" align="center">
     <tr>
       <td width="90" height="32">SlNo</td>
       <td width="90">Name</td>
@@ -107,7 +112,7 @@ if(isset($_POST["btn_submit"]))
       <td><?php echo $data["user_name"]; ?></td>
       <td><?php echo $data["user_email"]; ?></td>
       <td><?php echo $data["user_password"]; ?></td>
-      <td><a href="AdminRegistration.php?did=<?php echo $data["user_id"]; ?>">Delete</a></td>
+      <td><a href="user_reg.php?did=<?php echo $data["user_id"]; ?>">Delete</a></td>
     </tr>
     <?php
 		  }

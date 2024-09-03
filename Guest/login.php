@@ -37,9 +37,9 @@
 	}
 ?>
 <body>
-<h1>LOGIN</h1>
+<h1 align="center">LOGIN</h1>
 <form name="form1" method="post" action="">
-  <table width="200" border="1">
+  <table width="200" border="1" align="center">
     <tr>
       <td>E-mail</td>
       <td><label for="email"></label>
