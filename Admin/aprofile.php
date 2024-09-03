@@ -19,11 +19,11 @@ body{
   </tr>
   <tr>
     <td colspan="15">User Registration</td>
-    <td><a href="user_reg.php">Link</a></td>
+    <td><a href="../Guest/user_reg.php">Link</a></td>
   </tr>
   <tr>
     <td colspan="15">Shop Registration</td>
-    <td><a href="shop_reg.php">Link</a></td>
+    <td><a href="../Guest/shop_reg.php">Link</a></td>
   </tr>
   <tr>
     <td colspan="15">Admin Registration</td>

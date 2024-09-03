@@ -110,6 +110,7 @@ if(isset($_GET['eid'])) {
 		}
 	?>
     
-</table>
+</table><br /><br />
+<a href="../Guest/login.php">Home</a>
 </body>
 </html>
