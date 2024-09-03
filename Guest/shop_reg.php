@@ -53,7 +53,11 @@ if(isset($_GET['did'])) {
   </tr>
   <tr>
     <td>Address</td>
-    <td>&nbsp;</td>
+    <td><form id="form4" name="form4" method="post" action="">
+      <label for="txt_address"></label>
+      <input type="text" name="txt_address" id="txt_id">
+</form></td>
+     </td>
   </tr>
   <tr>
     <td>Place</td>
