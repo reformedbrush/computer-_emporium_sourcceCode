@@ -18,6 +18,10 @@ body{
     <td><a href="district.php">Link</a></td>
   </tr>
   <tr>
+    <td colspan="15">Place</td>
+    <td><a href="place.php">Link</a></td>
+  </tr>
+  <tr>
     <td colspan="15">User Registration</td>
     <td><a href="../Guest/user_reg.php">Link</a></td>
   </tr>
@@ -26,8 +30,12 @@ body{
     <td><a href="../Guest/shop_reg.php">Link</a></td>
   </tr>
   <tr>
-    <td colspan="15">Admin Registration</td>
-    <td><a href="Admin_reg.php">Link</a></td>
+    <td colspan="15">Category</td>
+    <td><a href="category.php">Link</a></td>
+  </tr>
+  <tr>
+    <td colspan="15">Sub-Category</td>
+    <td><a href="subCategory.php">Link</a></td>
   </tr>
   
 </table><br />
