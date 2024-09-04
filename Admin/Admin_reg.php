@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="admin_reg.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Admin Registration</title>
 <style>
 body{
 	text-align:center;
@@ -78,10 +78,10 @@ if(isset($_GET['did'])) {
     </td>
   </tr>
 </table><br><br />
-<form id="form1" name="form1" method="post" action="">
+<!-- <form id="form1" name="form1" method="post" action="">
   <table width="494" border="1" align="center">
     <tr>
-      <td width="90" height="32">SlNo</td>
+     <td width="90" height="32">SlNo</td>
       <td width="90">Name</td>
       <td width="90">Email</td>
       <td width="90">Password</td>
@@ -94,7 +94,7 @@ if(isset($_GET['did'])) {
 		  while($data=$result->fetch_assoc())
 		  {
 			  $i++;
-	?>
+	?>  
     <tr>
       <td><?php echo $i; ?></td>
       <td><?php echo $data["admin_name"]; ?></td>
@@ -107,6 +107,6 @@ if(isset($_GET['did'])) {
 	?>
   </table>
 
-</form>
+</form> -->
 </body>
 

@@ -5,13 +5,15 @@ if(isset($_POST["btn_submit"]))
 	$name=$_POST['txt_name'];
 	$email=$_POST['txt_email'];
 	$password=$_POST['txt_password'];
-	$district=$_POST['sel_district'];
-	$place=$_POST['sel_place'];
+  $place=$_POST['sel_place'];
+  $address=$_POST['txt_address'];
+  $contact=$_POST['txt_contact'];
+	/* $place=$_POST['sel_place'];
 	$photo=$_FILES["file_photo"]["name"];
 	$temp=$_FILES["file_photo"]["tmp_name"];
-	move_uploaded_file($temp,"../Assets/Files/User/".$photo);
-	
-	$insQry="insert into tbl_user(shop_name,shop_email,shop_password,district,shop_address,place_id,shop_contact) values('".$name."','".$email."','".$password."','".$district."','".$place."')";
+	move_uploaded_file($temp,"../Assets/Files/User/".$photo); 
+	 */
+	$insQry="insert into tbl_shop(shop_name,shop_email,shop_password,shop_address,place_id,shop_contact) values('".$name."','".$email."','".$password."','".$address."','".$place."','".$contact."')";
 	if($con->query($insQry))
 	{
 		echo "inserted";
@@ -28,40 +30,51 @@ if(isset($_GET['did'])) {
 }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Registration</title>
+  <style>
+    body{
+      text-align:center;
+    }
 
-<table width="200" border="1">
+    </style>
+</head>
+<body>
+  <h1>Shop Registration </h1><br><br>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" align="center">
   <tr>
     <td>Name</td>
-    <td><form id="form1" name="form1" method="post" action="">
+    <td>
       <label for="txt_name"></label>
       <input type="text" name="txt_name" id="txt_name" />
-    </form></td>
+    </td>
   </tr>
   <tr>
     <td>E-mail</td>
-    <td><form id="form2" name="form2" method="post" action="">
+    <td>
       <label for="txt_email"></label>
       <input type="text" name="txt_email" id="txt_email" />
-    </form></td>
+    </td>
   </tr>
   <tr>
     <td>Password</td>
-    <td><form id="form3" name="form3" method="post" action="">
+    <td>
       <label for="txt_password"></label>
       <input type="text" name="txt_password" id="txt_password" />
-    </form></td>
+    </td>
   </tr>
   <tr>
     <td>Address</td>
-    <td><form id="form4" name="form4" method="post" action="">
+    <td>
       <label for="txt_address"></label>
       <input type="text" name="txt_address" id="txt_id">
-</form></td>
+  </td>
      </td>
-  </tr>
-  <tr>
-    <td>Place</td>
-    <td>&nbsp;</td>
   </tr>
   <tr> 
     <td>District</td>
@@ -83,38 +96,36 @@ if(isset($_GET['did'])) {
       </select></td>
   </tr>
   <tr>
-    <td colspan="2"><form id="form4" name="form4" method="post" action="">
+      <td>Place</td>
+      <td><label for="sel_place"></label>
+        <select name="sel_place" id="sel_place" onchange="getplace(this.value)">
+          <option>--Select--</option>
+          <?php 
+          $selQry1="select * from tbl_place";
+          $resultOne=$con->query($selQry1);
+          while($data=$resultOne->fetch_assoc())
+          {
+            ?>
+            <option value="<?php echo $data['place_id']; ?>">
+              <?php echo $data['place_name']; ?>
+          </option>
+              <?php
+          }
+        ?>
+      </select></td>
+    </tr>
+  <tr>
+    <td>Contact No.</td>
+    <td>
+      <label for="txt_address"></label>
+      <input type="text" name="txt_contact" id="txt_id">
+    </td>
+  <tr>
+    <td colspan="2">
       <input type="submit" name="btn_submit" id="btn_submit" value="Submit" />
       <input type="submit" name="cancel" id="cancel" value="Cancel" />
-    </form></td>
-  </tr>
-  
-  <table id='shopInfoTable' width='400' style='border-collapse: collapse; width:50%' align='center'  >
-    <tr>
-      <th>SL NO</th>
-      <th>SHOP NAME</th>
-      <th>ACTION</th>
+    </td>
     </tr>
-  <?php
-	  $selQry = "select * from tbl_shop";
-	  $result = $con->query($selQry);
-	  $i = 0;
-	  while($row = $result->fetch_assoc())
-	  { $i++;
-	    ?>
-	    <tr>
-        <td><?php echo $i; ?></td>
-        <td><?php echo $row["shop_name"]; ?></td>
-        <td>
-          <a href="shop_reg.php?did=<?php echo $row['shop_id']; ?>">Delete </a> | 
-          <a href="shop_reg.php?eid=<?php echo $row['shop_id']; ?>"> Edit</a>
-        </td>
-      </tr>
-      <?php
-	  
-		}
-	?>
-    
-</table>
-  
-</table>
+</form>
+</body>
+</html>
