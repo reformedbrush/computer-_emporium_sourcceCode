@@ -77,9 +77,20 @@ if(isset($_GET['did'])) {
       <td><label for="sel_place"></label>
         <select name="sel_place" id="sel_place">
           <option>--Select--</option>
-        
+          <?php 
+          $selQry1="select * from tbl_place";
+          $resultOne=$con->query($selQry1);
+          while($data=$resultOne->fetch_assoc())
+          {
+            ?>
+            <option value="<?php echo $data['place_id']; ?>">
+              <?php echo $data['place_name']; ?>
+          </option>
+              <?php
+          }
+        ?>
       </select></td>
-    </tr
+    </tr>
     <tr>
       <td colspan="2"><div align="center">
         <input type="submit" name="btn_submit" id="btn_submit" value="Submit" />
