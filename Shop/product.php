@@ -1,3 +1,12 @@
+<?php
+include('../Assets/Connection/Connection.php');
+
+$photo = $_FILES["file_photo"]["name"];
+$path = $_FILES["file_photo"]["tmp_name"];
+move_uploaded_file($path,"../Assets/Files/Product/".$photo);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +20,22 @@
         </style>
 </head>
 <body>
-    <h1>Product Page</h1>
-    
+    <form name="form1" method="post" action="" enctype="multipart/form-data">
+     <h1>Product Page</h1><br><br>
 
-<table width="200" border="1">
+<table width="200" border="1" align="center">
       <tr>
         <td>Product</td>
-        <td><form name="form2" method="post" action="">
+        <td>
           <input type="text" name="txt_product" id="txt_product">
-        </form></td>
+       </td>
       </tr>
       <tr>
         <td>Description</td>
-        <td><form name="form3" method="post" action="">
+        <td>
           <label for="txt_description"></label>
           <textarea name="txt_description" id="txt_description"></textarea>
-        </form></td>
+        </td>
       </tr>
       <tr>
         <td>Catagory</td>
@@ -38,20 +47,25 @@
       </tr>
       <tr>
         <td>Price</td>
-        <td><form name="form4" method="post" action="">
+        <td>
           <label for="txt_price"></label>
           <input type="text" name="txt_price" id="txt_price">
-        </form></td>
+        </td>
       </tr>
       <tr>
         <td>Photo</td>
-        <td>&nbsp;</td>
+        <td>
+          <label for="file_photo"></label>
+          <input type="file" name="file_photo" id="file_photo">
+        </td>
       </tr>
       <tr>
-        <td colspan="2" align="center"><form name="form1" method="post" action=""> 
+        <td colspan="2" align="center">
           <input type="submit" name="btn_submit" id="btn_submit" value="Submit">
-        </form></td>
+       </td>
       </tr>
 </table>
+    </form>
+   
 </body>
 </html>
