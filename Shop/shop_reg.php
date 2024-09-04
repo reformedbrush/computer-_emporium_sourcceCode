@@ -11,7 +11,7 @@ if(isset($_POST["btn_submit"]))
 	$temp=$_FILES["file_photo"]["tmp_name"];
 	move_uploaded_file($temp,"../Assets/Files/User/".$photo);
 	
-	$insQry="insert into tbl_user(user_name,user_email,user_password) values('".$name."','".$email."','".$password."')";
+	$insQry="insert into tbl_user(shop_name,shop_email,shop_password,district,shop_address,place_id,shop_contact) values('".$name."','".$email."','".$password."','".$district."','".$place."')";
 	if($con->query($insQry))
 	{
 		echo "inserted";
@@ -63,7 +63,7 @@ if(isset($_GET['did'])) {
     <td>Place</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr> 
     <td>District</td>
     <td><label for="sel_district"></label>
         <select name="sel_district" id="sel_district" onchange="getplace(this.value)">
@@ -92,7 +92,7 @@ if(isset($_GET['did'])) {
   <table id='shopInfoTable' width='400' style='border-collapse: collapse; width:50%' align='center'  >
     <tr>
       <th>SL NO</th>
-      <th>Shop Name</th>
+      <th>SHOP NAME</th>
       <th>ACTION</th>
     </tr>
   <?php
@@ -106,8 +106,8 @@ if(isset($_GET['did'])) {
         <td><?php echo $i; ?></td>
         <td><?php echo $row["shop_name"]; ?></td>
         <td>
-          <a href="District.php?did=<?php echo $row['shop_id']; ?>">Delete </a> | 
-          <a href="District.php?eid=<?php echo $row['shop_id']; ?>"> Edit</a>
+          <a href="shop_reg.php?did=<?php echo $row['shop_id']; ?>">Delete </a> | 
+          <a href="shop_reg.php?eid=<?php echo $row['shop_id']; ?>"> Edit</a>
         </td>
       </tr>
       <?php

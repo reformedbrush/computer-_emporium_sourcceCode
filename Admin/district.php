@@ -7,8 +7,18 @@ $eid = 0;
 if(isset($_POST['btn_submit'])) {
   $district = $_POST['txt_dist'];
   $eid = $_POST["txt_eid"];
-
+	
   if($eid == 0) { 
+  $selCheck="select * from tbl_district where district_name='".$district."'";
+  $resCheck=$con->query($selCheck);
+  if($resCheck->num_rows>0){
+	  ?>
+      <script>
+	  alert("District Already Exists");
+	  </script>
+      <?php
+  }
+  else{
     $insQry="insert into tbl_district(district_name) values('".$district."')";
     if($con->query($insQry)) { 
       ?>
@@ -18,6 +28,7 @@ if(isset($_POST['btn_submit'])) {
 	    </script>
       <?php 
     }
+  }
   } else {
       $upQry = "update tbl_district set district_name = '".$district."' where district_id = ".$eid;
       if($con->query($upQry)) {
@@ -68,11 +79,11 @@ if(isset($_GET['eid'])) {
 </style>
 <body>
 <form id='District' name='District' method='post' action=''>
-<table width='300'  align="center" id='districtGetInfo'>
-  <tr>
+  <table width='300'  align="center" id='districtGetInfo'>
+    <tr>
     <td><strong>District</strong></td>
     <td><label for='dist_txt'></label>
-      <input type="text" name="txt_dist" id="txt_dist" value="<?php echo $district; ?>"  />
+    <input type="text" name="txt_dist" id="txt_dist" value="<?php echo $district; ?>"  />
       <input type="hidden" name="txt_eid" id="txt_eid" value="<?php echo $eid; ?>"   />
     </td>
   </tr>
@@ -110,7 +121,6 @@ if(isset($_GET['eid'])) {
 		}
 	?>
     
-</table><br /><br />
-<a href="../Guest/login.php">Home</a>
+</table>
 </body>
-</html>
+</html>     

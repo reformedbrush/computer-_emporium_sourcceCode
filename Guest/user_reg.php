@@ -5,13 +5,12 @@ if(isset($_POST["btn_submit"]))
 	$name=$_POST['txt_name'];
 	$email=$_POST['txt_email'];
 	$password=$_POST['txt_password'];
-	$district=$_POST['sel_district'];
 	$place=$_POST['sel_place'];
-	$photo=$_FILES["file_photo"]["name"];
-	$temp=$_FILES["file_photo"]["tmp_name"];
-	move_uploaded_file($temp,"../Assets/Files/User/".$photo);
+	//$photo=$_FILES["file_photo"]["name"];
+	//$temp=$_FILES["file_photo"]["tmp_name"];
+	//move_uploaded_file($temp,"../Assets/Files/User/".$photo);
 	
-	$insQry="insert into tbl_user(user_name,user_email,user_password) values('".$name."','".$email."','".$password."')";
+	$insQry="insert into tbl_user(user_name,user_email,user_password,place_id) values('".$name."','".$email."','".$password."','".$place."')";
 	if($con->query($insQry))
 	{
 		echo "inserted";
@@ -90,34 +89,6 @@ if(isset($_GET['did'])) {
   </table><br />
   
 </form>
-<form id="form1" name="form1" method="post" action="">
-  <table width="494" border="1" align="center">
-    <tr>
-      <td width="90" height="32">SlNo</td>
-      <td width="90">Name</td>
-      <td width="90">Email</td>
-      <td width="90">Password</td>
-      <td width="90">Action</td>
-    </tr>
-    <?php 
-		  $selQry="select * from tbl_user";
-		  $result=$con->query($selQry);
-		  $i=0;
-		  while($data=$result->fetch_assoc())
-		  {
-			  $i++;
-	?>
-    <tr>
-      <td><?php echo $i; ?></td>
-      <td><?php echo $data["user_name"]; ?></td>
-      <td><?php echo $data["user_email"]; ?></td>
-      <td><?php echo $data["user_password"]; ?></td>
-      <td><a href="user_reg.php?did=<?php echo $data["user_id"]; ?>">Delete</a></td>
-    </tr>
-    <?php
-		  }
-	?>
-  </table>
 </body>
  <script src="../Assets/JQ/jQuery.js"></script>
 <script>
