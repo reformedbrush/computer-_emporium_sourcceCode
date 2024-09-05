@@ -122,5 +122,6 @@ if(isset($_GET['eid'])) {
 	?>
     
 </table>
+<a href="aprofile.php">Home</a>
 </body>
 </html>     
