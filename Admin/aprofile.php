@@ -4,14 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<style>
-body{
-	text-align:center;
-}
-</style>
+<link rel="stylesheet" href="aProfile.css">
 </head>
 
 <body>
+<form align="center">
+
 <h1> My Profile </h1><br />
 <table width="200" border="1" align="center">
   <tr>
@@ -40,7 +38,7 @@ body{
   </tr>
   
 </table><br />
-<a href="../Guest/login.php">Logout</a>
-
+<a href="../Guest/login.php" align="center">Logout</a>
+</form>
 </body>
 </html>

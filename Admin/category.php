@@ -54,8 +54,8 @@ if(isset($_GET['did'])) {
 
 if(isset($_GET['eid'])) {
   $eid = $_GET["eid"];
-  $seldistrict = "select * from tbl_category where category_id=".$eid;
-  $selresult = $con->query($seldistrict);
+  $selCategory = "select * from tbl_category where category_id=".$eid;
+  $selresult = $con->query($selCategory);
   $seldata = $selresult->fetch_assoc();
   $category = $seldata["category_name"];
 }

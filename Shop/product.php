@@ -1,10 +1,15 @@
 <?php
 include('../Assets/Connection/Connection.php');
-
+$product=$_POST['txt_product'];
+$description=$_POST['txt_description'];
+$price=$_POST['txt_price'];
+$category=$_POST['selCategory'];
+$subCategory=$_POST['selsubCategory'];
 $photo = $_FILES["file_photo"]["name"];
 $path = $_FILES["file_photo"]["tmp_name"];
 move_uploaded_file($path,"../Assets/Files/Product/".$photo);
 
+$insQry="inset in to tbl_product (product_name,product_desc,product_price,product_photo)"
 
 ?>
 <!DOCTYPE html>
@@ -39,11 +44,45 @@ move_uploaded_file($path,"../Assets/Files/Product/".$photo);
       </tr>
       <tr>
         <td>Catagory</td>
-        <td>&nbsp;</td>
+        <td><label for="selCategory"></label>
+        <select name="selCategory" id="selCategory" onchange="getplace(this.value)">
+          <option>--Select--</option>
+          <?php
+        $selQry1="select * from tbl_category";
+        $resultOne=$con->query($selQry1);
+        while($data=$resultOne->fetch_assoc())
+        {
+      ?>
+          <option value="<?php echo $data['category_id']; ?>">
+            <?php echo $data['category_name']; ?>
+          </option>
+        <?php
+        
+        }
+      ?>
+      </select>
+      </td>
       </tr>
       <tr>
         <td>Sub Catagory </td>
-        <td>&nbsp;</td>
+        <td>
+          <label for="selsubCategory"></label>
+          <select name="selsubCategory" id="selsubCategory" onchange="getplace(this.value)">
+            <option>--Select--</option>
+            <?php 
+            $selQry1="select * from tbl_subCategory";
+            $resultOne=$con->query($selQry1);
+            while($data=$resultOne->fetch_assoc())
+            {
+              ?>
+              <option value="<?php echo $data['subCategory_id']; ?>">
+                <?php echo $data['subCategory_name']; ?>
+            </option>
+            <?php
+            }
+          ?>
+          </select>
+        </td>
       </tr>
       <tr>
         <td>Price</td>

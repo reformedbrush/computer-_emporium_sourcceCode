@@ -67,19 +67,9 @@ if(isset($_GET['eid'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PAGE DISTRICT</title>
 </head>
-<style>
-  #districtGetInfo{
-    border-spacing: 0 10px;
-  }
-
-  #districtInfoTable th, #districtInfoTable td{
-    text-align: center;
-    border: 1px solid black;
-  }
-</style>
 <body>
-<form id='District' name='District' method='post' action=''>
-  <table width='300'  align="center" id='districtGetInfo'>
+<form id='District' name='District' method='post' action='' align="center">
+  <table width='300' id='districtGetInfo'>
     <tr>
     <td><strong>District</strong></td>
     <td><label for='dist_txt'></label>
@@ -89,12 +79,10 @@ if(isset($_GET['eid'])) {
   </tr>
   <tr>
 
-    <td colspan='2' align='center'><input type='submit' name='btn_submit' id='btn_submit' value="SAVE" /></td>
+    <td colspan='2'><input type='submit' name='btn_submit' id='btn_submit' value="SAVE" /></td>
   </tr>
 </table>
 <p>&nbsp;</p>
-</form>
-
 <table id='districtInfoTable' width='400' style='border-collapse: collapse; width:50%' align='center'  >
     <tr>
       <th>SL NO</th>
@@ -123,5 +111,6 @@ if(isset($_GET['eid'])) {
     
 </table>
 <a href="aprofile.php">Home</a>
+</form>
 </body>
 </html>     

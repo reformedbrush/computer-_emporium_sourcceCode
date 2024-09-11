@@ -1,3 +1,7 @@
+<?php
+include('../Assets/Connection/Connection.php');
+session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,9 +23,11 @@ text-align:right;
 <br />
 <br />
 <hr />
-<div id="profile">
+<?php 
+
+echo $_SESSION['uname'];
+?>
 <a href="uProfile.php">My Profile</a>
-</div>
 <br /><br />
 </body>
 </html>

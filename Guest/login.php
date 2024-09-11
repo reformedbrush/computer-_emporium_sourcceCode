@@ -1,5 +1,6 @@
 <?php
 	include("../Assets/connection/connection.php");
+	session_start();
 	if(isset($_POST["Login"]))
 	{
 		$email=$_POST["email"];
@@ -14,19 +15,19 @@
 		{
 			$_SESSION['aid']=$data['admin_id'];
 			$_SESSION['aname']=$data['admin_name'];
-			header("location:../Admin/adminHome.php");	
+			header("location:../Admin/aprofile.php");	
 		}
-		else if($data=$resUser->fetch_assoc())
+		else if($data1=$resUser->fetch_assoc())
 		{
-			$_SESSION['aid']=$data['user_id'];
-			$_SESSION['aname']=$data['user_name'];
-			header("location:../Admin/userHome.php");	
+			$_SESSION['uid']=$data1['user_id'];
+			$_SESSION['uname']=$data1['user_name'];
+			header("location:../User/userHome.php");	
 		}
-		if($data=$resSeller->fetch_assoc())
+		if($data2=$resSeller->fetch_assoc())
 		{
-			$_SESSION['aid']=$data['shop_id'];
-			$_SESSION['aname']=$data['shop_name'];
-			header("location:../Admin/sellerHome.php");	
+			$_SESSION['sid']=$data2['shop_id'];
+			$_SESSION['sname']=$data2['shop_name'];
+			header("location:../Shop/sellerHome.php");	
 		}
 		else
 		{

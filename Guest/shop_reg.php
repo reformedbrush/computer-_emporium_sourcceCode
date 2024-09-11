@@ -8,12 +8,13 @@ if(isset($_POST["btn_submit"]))
   $place=$_POST['sel_place'];
   $address=$_POST['txt_address'];
   $contact=$_POST['txt_contact'];
+  $district=$_POST['sel_district'];
 	/* $place=$_POST['sel_place'];
 	$photo=$_FILES["file_photo"]["name"];
 	$temp=$_FILES["file_photo"]["tmp_name"];
 	move_uploaded_file($temp,"../Assets/Files/User/".$photo); 
 	 */
-	$insQry="insert into tbl_shop(shop_name,shop_email,shop_password,shop_address,place_id,shop_contact) values('".$name."','".$email."','".$password."','".$address."','".$place."','".$contact."')";
+	$insQry="insert into tbl_shop(shop_name,shop_email,shop_password,shop_address,place_id,shop_contact,district_id) values('".$name."','".$email."','".$password."','".$address."','".$place."','".$contact."','".$district."')";
 	if($con->query($insQry))
 	{
 		echo "inserted";
