@@ -6,11 +6,13 @@ if(isset($_POST["btn_submit"]))
 	$email=$_POST['txt_email'];
 	$password=$_POST['txt_password'];
 	$place=$_POST['sel_place'];
+  $address=$_POST['txt_address'];
+  $contact=$_POST['txt_number'];
 	//$photo=$_FILES["file_photo"]["name"];
 	//$temp=$_FILES["file_photo"]["tmp_name"];
 	//move_uploaded_file($temp,"../Assets/Files/User/".$photo);
 	
-	$insQry="insert into tbl_user(user_name,user_email,user_password,place_id) values('".$name."','".$email."','".$password."','".$place."')";
+	$insQry="insert into tbl_user(user_name,user_email,user_password,place_id,user_address,user_number) values('".$name."','".$email."','".$password."','".$place."','".$address."','".$contact."')";
 	if($con->query($insQry))
 	{
 		echo "inserted";
@@ -52,6 +54,16 @@ if(isset($_GET['did'])) {
       <td>Password</td>
       <td><label for="txt_password"></label>
       <input type="text" name="txt_password" id="txt_password" /></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><label for="txt_address"></label>
+      <input type="text" name="txt_address" id="txt_address" /></td>
+    </tr>
+    <tr>
+      <td>Number</td>
+      <td><label for="txt_number"></label>
+      <input type="text" name="txt_number" id="txt_number" /></td>
     </tr>
     <tr>
       <td>District</td>

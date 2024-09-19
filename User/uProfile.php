@@ -6,6 +6,31 @@
   <title>Document</title>
 </head>
 <body>
-  <h2>hello</h2>
+<form name="form1" method="post" action="">
+  <table width="200" border="1">
+    <tr>
+      <td>Name</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Contact</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>E-mail</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      <a href="userEdit.php">Edit</a> 
+      <a href="userChangePass.php">Change Password</a>
+      </td>
+    </tr>
+  </table>
+</form>
 </body>
 </html>

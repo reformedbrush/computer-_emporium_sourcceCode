@@ -1,5 +1,7 @@
 <?php
 include('../Assets/Connection/Connection.php');
+if(isset($_POST["btn_submit"]))
+{
 $product=$_POST['txt_product'];
 $description=$_POST['txt_description'];
 $price=$_POST['txt_price'];
@@ -9,9 +11,14 @@ $photo = $_FILES["file_photo"]["name"];
 $path = $_FILES["file_photo"]["tmp_name"];
 move_uploaded_file($path,"../Assets/Files/Product/".$photo);
 
-$insQry="inset in to tbl_product (product_name,product_desc,product_price,product_photo)"
-
-?>
+$insQry="insert into tbl_product (product_name,product_desc,product_price,product_photo,subCategory_id)values('".$product."','".$description."','".$price."','".$subCategeory."','".$photo."')";
+if($con->query($insQry))
+{
+  echo "inserted";
+}
+}
+  
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
