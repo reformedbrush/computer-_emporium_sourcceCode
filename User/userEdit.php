@@ -4,6 +4,19 @@ session_start();
 $user="select * from tbl_user where user_id=".$_SESSION['uid'];
 $res=$con->query($user);
 $data=$res->fetch_assoc();
+if(isset($_POST['update']))
+{
+  $name=$_POST['txt_name'];
+  $address=$_POST['txt_address'];
+  $email=$_POST['txt_email'];
+  $number=$_POST['txt_number'];
+  $upQry = "update tbl_user set user_name = '".$name."',user_address='".$address."', user_email='".$email."',user_number='".$number."' where user_id = ".$_SESSION['uid'];
+  if($con->query($upQry)) {
+    echo "updated";
+    }
+}
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
