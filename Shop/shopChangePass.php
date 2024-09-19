@@ -1,3 +1,47 @@
+<?php
+
+include("../Assets/Connection/connection.php");
+session_start();
+$message="";
+if(isset($_POST["btn_submit"]))
+{
+	
+	$currentpwd=$_POST["txtcurrent"];
+	$newpwd=$_POST["txtnew"];
+	$confirmpwd=$_POST["txtconfirm"];
+
+	$selQuery="select * from tbl_shop where shop_password='".$currentpwd."' and shop_id='".$_SESSION["sid"]."'";
+	$result=$con->query($selQuery);
+	if($data=$result->fetch_assoc())
+		{
+			
+			if($newpwd==$confirmpwd)
+			{
+				$upQry="update tbl_shop set shop_password='".$newpwd."' where shop_id='".$_SESSION["sid"]."'";
+				if($con->query($upQry))
+				{
+					$message="Password Updated";
+				}
+			}
+			else
+			{
+					$message="Password not same";
+			}
+		}
+		else
+		{
+			$message="Please check current password";
+		}
+
+}
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,21 +51,28 @@
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="275" border="1">
+  <table width="345" height="189" border="1">
     <tr>
-      <td width="166">Old Password</td>
-      <td width="93">&nbsp;</td>
+      <th>Current Password</th>
+      <td><label for="txtcurrent"></label>
+      <input type="text" name="txtcurrent" id="txtcurrent" /></td>
     </tr>
     <tr>
-      <td>New Password</td>
-      <td>&nbsp;</td>
+      <th >New Password</th>
+      <td><label for="txtnew"></label>
+      <input type="text" name="txtnew" id="txtnew" /></td>
     </tr>
     <tr>
-      <td>Confirm Password</td>
-      <td>&nbsp;</td>
+      <th scope="row">Confirm Password</th>
+      <td><label for="txtconfirm"></label>
+      <input type="text" name="txtconfirm" id="txtconfirm" /></td>
     </tr>
     <tr>
-      <td colspan="2"><input type="submit" name="btn_submit" id="btn_submit" value="Submit" /></td>
+      <th colspan="2" scope="row"><input type="submit" name="btn_submit" id="btn_submit" value="Update" /></th>
+    </tr>
+    <tr>
+      
+      <td colspan="2" align="center"><?php echo $message?></td>
     </tr>
   </table>
 </form>

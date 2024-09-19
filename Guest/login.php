@@ -21,13 +21,13 @@
 		{
 			$_SESSION['uid']=$data1['user_id'];
 			$_SESSION['uname']=$data1['user_name'];
-			header("location:../User/userHome.php");	
+			header("location:../User/uProfile.php");	
 		}
 		if($data2=$resSeller->fetch_assoc())
 		{
 			$_SESSION['sid']=$data2['shop_id'];
 			$_SESSION['sname']=$data2['shop_name'];
-			header("location:../Shop/sellerHome.php");	
+			header("location:../Shop/sellerProfile.php");	
 		}
 		else
 		{

@@ -1,3 +1,10 @@
+<?php
+include("../Assets/Connection/connection.php");
+session_start();
+$user="select * from tbl_user where user_id=".$_SESSION['uid'];
+$res=$con->query($user);
+$data=$res->fetch_assoc();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,21 +18,29 @@
     <tr>
       <td>Name</td>
       <td><label for="txt_name"></label>
-      <input type="text" name="txt_name" id="txt_name" /></td>
+      <input type="text" name="txt_name" id="txt_name" value="<?php
+        echo $data['user_name']
+      ?>" /></td>
     </tr>
     <tr>
       <td>Contact</td>
-      <td>&nbsp;</td>
+      <td><label for="txt_number"></label>
+      <input type="text" name="txt_number" id="txt_number" value="<?php 
+      echo $data['user_number']
+      ?>" /></td>
     </tr>
     <tr>
       <td>E-mail</td>
       <td><label for="txt_email"></label>
-      <input type="text" name="txt_email" id="txt_email" /></td>
+      <input type="text" name="txt_email" id="txt_email" value="<?php
+      echo $data['user_email']
+      ?>"/></td>
     </tr>
     <tr>
       <td>Address</td>
       <td><label for="txt_address"></label>
-      <input type="text" name="txt_address"id="txt_address" ></td>
+      <input type="text" name="txt_address"id="txt_address" value="<?php
+      echo $data['user_address']?>"/></td>
     </tr>
     <tr>
       <td colspan="2">

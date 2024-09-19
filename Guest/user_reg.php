@@ -53,7 +53,7 @@ if(isset($_GET['did'])) {
     <tr>
       <td>Password</td>
       <td><label for="txt_password"></label>
-      <input type="text" name="txt_password" id="txt_password" /></td>
+      <input type="password" name="txt_password" id="txt_password" /></td>
     </tr>
     <tr>
       <td>Address</td>
