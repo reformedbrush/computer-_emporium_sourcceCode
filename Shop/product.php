@@ -1,5 +1,9 @@
 <?php
 include('../Assets/Connection/Connection.php');
+session_start();
+$user="select * from tbl_shop where shop_id=".$_SESSION['sid'];
+$res=$con->query($user);
+$data=$res->fetch_assoc();
 if(isset($_POST["btn_submit"]))
 {
 $product=$_POST['txt_product'];
@@ -11,7 +15,7 @@ $photo = $_FILES["file_photo"]["name"];
 $path = $_FILES["file_photo"]["tmp_name"];
 move_uploaded_file($path,"../Assets/Files/Product/".$photo);
 
-$insQry="insert into tbl_product (product_name,product_desc,product_price,product_photo,subCategory_id)values('".$product."','".$description."','".$price."','".$subCategeory."','".$photo."')";
+$insQry="insert into tbl_product (product_name,product_desc,product_price,product_photo,subCategory_id,shop_id)values('".$product."','".$description."','".$price."','".$photo."','".$subCategory."','".$_SESSION['sid']."')";
 if($con->query($insQry))
 {
   echo "inserted";

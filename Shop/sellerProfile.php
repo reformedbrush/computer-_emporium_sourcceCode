@@ -45,6 +45,10 @@ $data=$res->fetch_assoc();
       <a href="shopChangePass.php">Change Password</a>
       </td>
     </tr>
+    <tr>
+      <td colspan="2">
+      <a href="product.php">ADD PRODUCT </a></td>
+    </tr>
   </table>
 </form>
 </body>

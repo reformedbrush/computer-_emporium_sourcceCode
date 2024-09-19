@@ -25,9 +25,26 @@
 		}
 		if($data2=$resSeller->fetch_assoc())
 		{
+			if($data2['shop_status']==0){
+				?>
+<script>
+	alert("Not verified")
+</script>
+				<?php
+			}
+			else if($data2['shop_status']==1){
+				
 			$_SESSION['sid']=$data2['shop_id'];
 			$_SESSION['sname']=$data2['shop_name'];
 			header("location:../Shop/sellerProfile.php");	
+			}
+			else{
+				?>
+<script>
+	alert("Rejected")
+</script>
+				<?php
+			}
 		}
 		else
 		{
