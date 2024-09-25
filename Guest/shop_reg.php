@@ -12,7 +12,7 @@ if(isset($_POST["btn_submit"]))
 	/* $place=$_POST['sel_place'];
 	$photo=$_FILES["file_photo"]["name"];
 	$temp=$_FILES["file_photo"]["tmp_name"];
-	move_uploaded_file($temp,"../Assets/Files/User/".$photo); 
+	move_uploaded_file($temp,"../Assets/Files/Shop/".$photo); 
 	 */
 	$insQry="insert into tbl_shop(shop_name,shop_email,shop_password,shop_address,place_id,shop_contact,district_id) values('".$name."','".$email."','".$password."','".$address."','".$place."','".$contact."','".$district."')";
 	if($con->query($insQry))
@@ -21,14 +21,14 @@ if(isset($_POST["btn_submit"]))
 	}
 	
 }
-if(isset($_GET['did'])) {
+/* if(isset($_GET['did'])) {
   $did = $_GET['did'];
   $delQry="delete from tbl_user where user_id = ".$did;
   if($con->query($delQry)) {
     header("location:user_reg.php");
     exit();
   }
-}
+} */
 
 ?>
 <!DOCTYPE html>

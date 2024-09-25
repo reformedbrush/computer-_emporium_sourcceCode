@@ -116,6 +116,8 @@ if($con->query($insQry))
       </tr>
 </table>
     </form>
+
+  <a href="sellerProfile.php">Home</a>
    
 </body>
 </html>
