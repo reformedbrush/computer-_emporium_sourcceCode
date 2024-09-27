@@ -114,6 +114,34 @@ if($con->query($insQry))
           <input type="submit" name="btn_submit" id="btn_submit" value="Submit">
        </td>
       </tr>
+      <table id='districtInfoTable' width='1000' style='border-collapse: collapse; width:50%' align='center'  >
+    <tr>
+      <th>SL NO</th>
+      <th>PRODUCT</th>
+      <th>PRICE</th>
+      <th>PHOTO</th>
+    </tr>
+  <?php
+	  $selQry = "select * from tbl_product";
+	  $result = $con->query($selQry);
+	  $i = 0;
+	  while($row = $result->fetch_assoc())
+	  { $i++;
+	    ?>
+	    <tr>
+        <td><?php echo $i; ?></td>
+        <td><?php echo $row["product_name"]; ?></td>
+        <td><?php echo $row["product_price"]; ?></td>
+        <td><img src="../Assets/Files/Product/<?php echo $row["product_photo"]; ?>"></td>
+        <td>
+          <a href="product.php?did=<?php echo $row['product_id']; ?>">Delete </a> | 
+          <a href="product.php?eid=<?php echo $row['product_id']; ?>"> Edit</a>
+        </td>
+      </tr>
+      <?php
+	  
+		}
+	?>
 </table>
     </form>
 

@@ -377,7 +377,7 @@ include("../Assets/Connection/Connection.php");
                     <div class="product-title"><?php echo $rowpr["product_name"] ?></div>
                    
                 </div>
-                <div class="product-price "	><?php echo $rowpr["product_rate"] ?></div>
+                <div class="product-price "	><?php echo $rowpr["product_price"] ?></div>
                 <div class="product-quantity">
                 <p class="product-description">1</p>
                 </div>
@@ -386,7 +386,7 @@ include("../Assets/Connection/Connection.php");
                 </div>
                 <div class="product-line-price">
                     <?php
-                        echo $rowpr["product_rate"];
+                        echo $rowpr["product_price"];
                     ?>
                 </div>
             </div>

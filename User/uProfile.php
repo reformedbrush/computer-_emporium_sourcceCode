@@ -47,5 +47,6 @@ $data=$res->fetch_assoc();
     </tr>
   </table>
 </form>
+<a href="SearchProduct.php">Search</a>
 </body>
 </html>
