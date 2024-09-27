@@ -1,130 +1,179 @@
 <?php
 include("../Assets/Connection/Connection.php");
-if(isset($_POST["btn_submit"]))
-{
-	$name=$_POST['txt_name'];
-	$email=$_POST['txt_email'];
-	$password=$_POST['txt_password'];
-	$place=$_POST['sel_place'];
-  $address=$_POST['txt_address'];
-  $contact=$_POST['txt_number'];
-	//$photo=$_FILES["file_photo"]["name"];
-	//$temp=$_FILES["file_photo"]["tmp_name"];
-	//move_uploaded_file($temp,"../Assets/Files/User/".$photo);
-	
-	$insQry="insert into tbl_user(user_name,user_email,user_password,place_id,user_address,user_number) values('".$name."','".$email."','".$password."','".$place."','".$address."','".$contact."')";
-	if($con->query($insQry))
-	{
-		echo "inserted";
-	}
-	
+
+if (isset($_POST["btn_submit"])) {
+  $name = $_POST['txt_name'];
+  $email = $_POST['txt_email'];
+  $password = $_POST['txt_password'];
+  $place = $_POST['sel_place'];
+  $address = $_POST['txt_address'];
+  $contact = $_POST['txt_number'];
+  
+  $insQry = "insert into tbl_user(user_name,user_email,user_password,place_id,user_address,user_number) values('".$name."','".$email."','".$password."','".$place."','".$address."','".$contact."')";
+  
+  if ($con->query($insQry)) {
+    echo "Inserted successfully!";
+  }
 }
-if(isset($_GET['did'])) {
+
+if (isset($_GET['did'])) {
   $did = $_GET['did'];
-  $delQry="delete from tbl_user where user_id = ".$did;
-  if($con->query($delQry)) {
+  $delQry = "delete from tbl_user where user_id = ".$did;
+  if ($con->query($delQry)) {
     header("location:user_reg.php");
     exit();
   }
 }
-
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>User Registration</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
 </head>
 
 <body>
-<h1 align="center"> USER REGISTRATION</h1>
+<h1 align="center">USER REGISTRATION</h1>
+
 <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
   <table width="200" border="1" align="center">
+    <!-- Name Field with Validation -->
     <tr>
       <td>Name</td>
-      <td><label for="txt_name"></label>
-      <input type="text" name="txt_name" id="txt_name" /></td>
+      <td>
+        <input 
+          type="text" 
+          name="txt_name" 
+          id="txt_name" 
+          required 
+          pattern="^[A-Z]+[a-zA-Z ]*$" 
+          title="Name allows only alphabets and spaces, and the first letter must be uppercase" 
+        />
+      </td>
     </tr>
+
+    <!-- Email Field with Validation -->
     <tr>
       <td>Email</td>
-      <td><label for="txt_email"></label>
-      <input type="text" name="txt_email" id="txt_email" /></td>
+      <td>
+        <input 
+          type="email" 
+          name="txt_email" 
+          id="txt_email" 
+          required 
+          title="Please enter a valid email address" 
+        />
+      </td>
     </tr>
+
+    <!-- Password Field with Validation -->
     <tr>
       <td>Password</td>
-      <td><label for="txt_password"></label>
-      <input type="password" name="txt_password" id="txt_password" /></td>
+      <td>
+        <input 
+          type="password" 
+          name="txt_password" 
+          id="txt_password" 
+          required 
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+          title="Password must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long" 
+        />
+      </td>
     </tr>
+
+    <!-- Address Field (Required) -->
     <tr>
       <td>Address</td>
-      <td><label for="txt_address"></label>
-      <input type="text" name="txt_address" id="txt_address" /></td>
+      <td>
+        <input 
+          type="text" 
+          name="txt_address" 
+          id="txt_address" 
+          required 
+        />
+      </td>
     </tr>
+
+    <!-- Contact Number Field with Validation -->
     <tr>
       <td>Number</td>
-      <td><label for="txt_number"></label>
-      <input type="text" name="txt_number" id="txt_number" /></td>
+      <td>
+        <input 
+          type="text" 
+          name="txt_number" 
+          id="txt_number" 
+          required 
+          pattern="[7-9]{1}[0-9]{9}" 
+          title="Phone number must start with 7, 8, or 9 and be exactly 10 digits long" 
+        />
+      </td>
     </tr>
+
+    <!-- District Field (Required) -->
     <tr>
       <td>District</td>
-      <td><label for="sel_district"></label>
-        <select name="sel_district" id="sel_district" onchange="getplace(this.value)">
-        <option>--Select--</option>
-        <?php
-			$selQry1="select * from tbl_district";
-			$resultOne=$con->query($selQry1);
-			while($data=$resultOne->fetch_assoc())
-			{
-		?>
-        <option value="<?php echo $data['district_id']; ?>">
-        <?php echo $data['district_name']; ?>
-        </option>
-        <?php
-			}
-		?>
-      </select></td>
+      <td>
+        <select name="sel_district" id="sel_district" required onchange="getPlace(this.value)">
+          <option value="">--Select--</option>
+          <?php
+            $selQry1 = "select * from tbl_district";
+            $resultOne = $con->query($selQry1);
+            while ($data = $resultOne->fetch_assoc()) {
+          ?>
+          <option value="<?php echo $data['district_id']; ?>">
+            <?php echo $data['district_name']; ?>
+          </option>
+          <?php
+            }
+          ?>
+        </select>
+      </td>
     </tr>
+
+    <!-- Place Field (Required) -->
     <tr>
       <td>Place</td>
-      <td><label for="sel_place"></label>
-        <select name="sel_place" id="sel_place">
-          <option>--Select--</option>
-          <?php 
-          $selQry1="select * from tbl_place";
-          $resultOne=$con->query($selQry1);
-          while($data=$resultOne->fetch_assoc())
-          {
-            ?>
-            <option value="<?php echo $data['place_id']; ?>">
-              <?php echo $data['place_name']; ?>
+      <td>
+        <select name="sel_place" id="sel_place" required>
+          <option value="">--Select--</option>
+          <?php
+            $selQry1 = "select * from tbl_place";
+            $resultOne = $con->query($selQry1);
+            while ($data = $resultOne->fetch_assoc()) {
+          ?>
+          <option value="<?php echo $data['place_id']; ?>">
+            <?php echo $data['place_name']; ?>
           </option>
-              <?php
-          }
-        ?>
-      </select></td>
+          <?php
+            }
+          ?>
+        </select>
+      </td>
     </tr>
+
+    <!-- Submit and Cancel Buttons -->
     <tr>
-      <td colspan="2"><div align="center">
+      <td colspan="2" align="center">
         <input type="submit" name="btn_submit" id="btn_submit" value="Submit" />
-        <input type="submit" name="btn_cancel" id="btn_cancel" value="Cancel" />
-      </div></td>
+        <input type="reset" name="btn_cancel" id="btn_cancel" value="Cancel" />
+      </td>
     </tr>
-  </table><br />
-  
+  </table>
 </form>
-</body>
- <script src="../Assets/JQ/jQuery.js"></script>
+
+<!-- AJAX Script for Dynamic Place Dropdown -->
+<script src="../Assets/JQ/jQuery.js"></script>
 <script>
   function getPlace(did) {
     $.ajax({
       url: "../Assets/AjaxPages/AjaxPlace.php?did=" + did,
       success: function (result) {
-
         $("#sel_place").html(result);
       }
     });
   }
-  
-
 </script>
+
+</body>
 </html>

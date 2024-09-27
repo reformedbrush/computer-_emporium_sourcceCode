@@ -42,9 +42,14 @@ $data=$res->fetch_assoc();
     <tr>
       <td colspan="2">
       <a href="userEdit.php">Edit</a> 
-      <a href="userChangePass.php">Change Password</a>
       </td>
     </tr>
+    <tr>
+      <td><a href="userChangePass.php">Change Password</a>
+</td>
+</tr>
+<tr><td><a href="MyBooking.php">My Orders</a></td></tr>
+
   </table>
 </form>
 <a href="SearchProduct.php">Search</a>

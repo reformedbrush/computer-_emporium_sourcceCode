@@ -4,113 +4,97 @@ include('../Assets/Connection/Connection.php');
 $district = "";
 $eid = 0;
 
-if(isset($_POST['btn_submit'])) {
+if (isset($_POST['btn_submit'])) {
   $district = $_POST['txt_dist'];
   $eid = $_POST["txt_eid"];
-	
-  if($eid == 0) { 
-  $selCheck="select * from tbl_district where district_name='".$district."'";
-  $resCheck=$con->query($selCheck);
-  if($resCheck->num_rows>0){
-	  ?>
-      <script>
-	  alert("District Already Exists");
-	  </script>
-      <?php
-  }
-  else{
-    $insQry="insert into tbl_district(district_name) values('".$district."')";
-    if($con->query($insQry)) { 
-      ?>
-      <script>
-	    alert("Data Inserted..")
-	    window.location="District.php";
-	    </script>
-      <?php 
-    }
-  }
+
+  // Validate district name
+  if (empty($district) || !preg_match("/^[A-Z][a-z]*(?: [A-Z][a-z]*)*$/", $district)) {
+    echo "<script>alert('Invalid district name. It should start with an uppercase letter and contain only alphabets and spaces.');</script>";
   } else {
-      $upQry = "update tbl_district set district_name = '".$district."' where district_id = ".$eid;
-      if($con->query($upQry)) {
-        ?>
-        <script>
-        alert("Data Updated...")
-        window.location = "District.php";
-        </script>
-        <?php
+    if ($eid == 0) {
+      $selCheck = "select * from tbl_district where district_name='" . $district . "'";
+      $resCheck = $con->query($selCheck);
+      if ($resCheck->num_rows > 0) {
+        echo "<script>alert('District Already Exists');</script>";
+      } else {
+        $insQry = "insert into tbl_district(district_name) values('" . $district . "')";
+        if ($con->query($insQry)) {
+          echo "<script>alert('Data Inserted..'); window.location='District.php';</script>";
+        }
+      }
+    } else {
+      $upQry = "update tbl_district set district_name = '" . $district . "' where district_id = " . $eid;
+      if ($con->query($upQry)) {
+        echo "<script>alert('Data Updated...'); window.location = 'District.php';</script>";
       }
     }
   }
+}
 
-if(isset($_GET['did'])) {
+if (isset($_GET['did'])) {
   $did = $_GET['did'];
-  $delQry="delete from tbl_district where district_id = ".$did;
-  if($con->query($delQry)) {
+  $delQry = "delete from tbl_district where district_id = " . $did;
+  if ($con->query($delQry)) {
     header("location:District.php");
     exit();
   }
 }
 
-if(isset($_GET['eid'])) {
+if (isset($_GET['eid'])) {
   $eid = $_GET["eid"];
-  $seldistrict = "select * from tbl_district where district_id=".$eid;
+  $seldistrict = "select * from tbl_district where district_id=" . $eid;
   $selresult = $con->query($seldistrict);
   $seldata = $selresult->fetch_assoc();
   $district = $seldata["district_name"];
 }
 ?>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>PAGE DISTRICT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page District</title>
 </head>
 <body>
 <form id='District' name='District' method='post' action='' align="center">
   <table width='300' id='districtGetInfo'>
     <tr>
-    <td><strong>District</strong></td>
-    <td><label for='dist_txt'></label>
-    <input type="text" name="txt_dist" id="txt_dist" value="<?php echo $district; ?>"  />
-      <input type="hidden" name="txt_eid" id="txt_eid" value="<?php echo $eid; ?>"   />
-    </td>
-  </tr>
-  <tr>
-
-    <td colspan='2'><input type='submit' name='btn_submit' id='btn_submit' value="SAVE" /></td>
-  </tr>
-</table>
-<p>&nbsp;</p>
-<table id='districtInfoTable' width='400' style='border-collapse: collapse; width:50%' align='center'  >
+      <td><strong>District</strong></td>
+      <td>
+        <input type="text" name="txt_dist" id="txt_dist" value="<?php echo htmlspecialchars($district); ?>" required pattern="^[A-Z][a-z]*(?: [A-Z][a-z]*)*$" title="District name should start with an uppercase letter and contain only alphabets and spaces." />
+        <input type="hidden" name="txt_eid" id="txt_eid" value="<?php echo $eid; ?>" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan='2'><input type='submit' name='btn_submit' id='btn_submit' value="SAVE" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table id='districtInfoTable' width='400' style='border-collapse: collapse; width:50%' align='center'>
     <tr>
       <th>SL NO</th>
       <th>DISTRICT</th>
       <th>ACTION</th>
     </tr>
-  <?php
-	  $selQry = "select * from tbl_district";
-	  $result = $con->query($selQry);
-	  $i = 0;
-	  while($row = $result->fetch_assoc())
-	  { $i++;
-	    ?>
-	    <tr>
+    <?php
+      $selQry = "select * from tbl_district";
+      $result = $con->query($selQry);
+      $i = 0;
+      while ($row = $result->fetch_assoc()) { $i++;
+    ?>
+      <tr>
         <td><?php echo $i; ?></td>
-        <td><?php echo $row["district_name"]; ?></td>
+        <td><?php echo htmlspecialchars($row["district_name"]); ?></td>
         <td>
-          <a href="District.php?did=<?php echo $row['district_id']; ?>">Delete </a> | 
-          <a href="District.php?eid=<?php echo $row['district_id']; ?>"> Edit</a>
+          <a href="District.php?did=<?php echo $row['district_id']; ?>">Delete</a> | 
+          <a href="District.php?eid=<?php echo $row['district_id']; ?>">Edit</a>
         </td>
       </tr>
-      <?php
-	  
-		}
-	?>
-    
-</table>
-<a href="aprofile.php">Home</a>
+    <?php } ?>
+  </table>
+  <a href="aprofile.php">Home</a>
 </form>
 </body>
-</html>     
+</html>
