@@ -43,7 +43,7 @@
             if ($data = $resAdmin->fetch_assoc()) {
                 $_SESSION['aid'] = $data['admin_id'];
                 $_SESSION['aname'] = $data['admin_name'];
-                header("location:../Admin/aprofile.php");    
+                header("location:../Admin/HomePage.php");    
             }
             // User login
             elseif ($data1 = $resUser->fetch_assoc()) {
@@ -58,7 +58,7 @@
                 } elseif ($data2['shop_status'] == 1) {
                     $_SESSION['sid'] = $data2['shop_id'];
                     $_SESSION['sname'] = $data2['shop_name'];
-                    header("location:../Shop/sellerProfile.php");    
+                    header("location:../Shop/HomePage.php");    
                 } else {
                     echo "<script>alert('Rejected');</script>";
                 }
