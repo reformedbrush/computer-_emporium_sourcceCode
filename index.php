@@ -17,11 +17,11 @@
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
 		<!-- Bootstrap CSS -->
-		<link href="../Assets/Templates/Main/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./Assets/Templates/Main/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="../Assets/Templates/Main/css/tiny-slider.css" rel="stylesheet">
-		<link href="../Assets/Templates/Main/css/style.css" rel="stylesheet">
-		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+		<link href="./Assets/Templates/Main/css/tiny-slider.css" rel="stylesheet">
+		<link href="./Assets/Templates/Main/css/style.css" rel="stylesheet">
+		<title>TECHShack </title>
 	</head>
 
 	<body>
@@ -30,7 +30,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">TECHe<span>.</span></a>
+				<a class="navbar-brand" href="index.html">TECH Shack<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -41,17 +41,17 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="index.html">Home</a>
 						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
+						<li><a class="nav-link" href="Guest/user_reg.php">User Registration</a></li>
+						<li><a class="nav-link" href="Guest/shop_reg.php">Seller Registration</a></li>
+						<li><a class="nav-link" href="Guest/login.php">Login</a></li>
 						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li>
 					</ul>
 
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="../Assets/Templates/Main/images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="../Assets/Templates/Main/images/cart.svg"></a></li>
-					</ul>
+					<!-- <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+						<li><a class="nav-link" href="#"><img src=".\Assets\Templates\Main\images\user.svg"></a></li>
+						<li><a class="nav-link" href="cart.html"><img src=".\Assets\Templates\Main\images\cart.svg"></a></li>
+					</ul> -->
 				</div>
 			</div>
 				
@@ -71,7 +71,7 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src=" " class="img-fluid">
+								<img src="Assets/Templates/Main/images/cmp.png" class="img-fluid">
 							</div>
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 				<div class="row justify-content-between">
 					<div class="col-lg-6">
 						<h2 class="section-title">Why Choose Us</h2>
-						<p>TECHe delivers the latest tech at great prices, with fast shipping and reliable customer support. Shop with us for a smooth experience and top-quality gadgets!</p>
+						<p>TECH Shack delivers the latest tech at great prices, with fast shipping and reliable customer support. Shop with us for a smooth experience and top-quality gadgets!</p>
 
 						<div class="row my-5">
 							<div class="col-6 col-md-6">
@@ -465,7 +465,7 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">TECH Shack<span>.</span></a></div>
 						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
 
 						<ul class="list-unstyled custom-social">
@@ -538,9 +538,10 @@
 		<!-- End Footer Section -->	
 
 
-		<script src="../Assets/Templates/Main/js/bootstrap.bundle.min.js"></script>
-		<script src="../Assets/Templates/Main/js/tiny-slider.js"></script>
-		<script src="../Assets/Templates/Main/js/custom.js"></script>
+		<script src="./Assets/Templates/Main/js/bootstrap.bundle.min.js"></script>
+		<script src="./Assets/Templates/Main/js/tiny-slider.js"></script>
+		<script src="./Assets/Templates/Main/js/custom.js"></script>
 	</body>
 
 </html>
+Furni

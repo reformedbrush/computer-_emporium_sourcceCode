@@ -100,7 +100,7 @@
                         <input type="Submit" name="Login" id="Login" value="Login">
                     </div>
                 </td>
-            </tr>
+            </tr> v
         </table>
         <!-- Display server-side error messages -->
         <?php if($error != ""): ?>

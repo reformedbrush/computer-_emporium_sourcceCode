@@ -2,6 +2,8 @@
 
 include("../Assets/Connection/connection.php");
 session_start();
+ob_start();
+include("Head.php");
 $message="";
 if(isset($_POST["btn_submit"]))
 {
@@ -78,3 +80,7 @@ if(isset($_POST["btn_submit"]))
 </form>
 </body>
 </html>
+<?php
+include("Foot.php");
+ob_flush();
+?>

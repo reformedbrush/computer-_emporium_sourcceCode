@@ -1,6 +1,8 @@
 <?php
 include("../Assets/Connection/connection.php");
 session_start();
+ob_start();
+include("Head.php");
 $user="select * from tbl_user where user_id=".$_SESSION['uid'];
 $res=$con->query($user);
 $data=$res->fetch_assoc();
@@ -63,3 +65,8 @@ if(isset($_POST['update']))
 </form>
 </body>
 </html>
+<?php
+include("Foot.php");
+ob_flush();
+?>
+
