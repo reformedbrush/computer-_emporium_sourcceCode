@@ -48,7 +48,7 @@ if (isset($_GET['did'])) {
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
     }
     .registration-form h1 {
       margin-bottom: 20px;
@@ -62,6 +62,9 @@ if (isset($_GET['did'])) {
     }
     .btn-custom:hover {
       background-color: #0056b3;
+    }
+    .form-group{
+      max-width:500px;
     }
   </style>
 </head>

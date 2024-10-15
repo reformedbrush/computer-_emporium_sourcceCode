@@ -10,21 +10,34 @@ include("Head.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>My Booking</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+</style>
 </head>
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="200" border="1">
+  <table>
     <tr>
-      <td>Sl.No</td>
-      <td>Product</td>
-      <td>Price</td>
-      <td>Qty</td>
-      <td>Seller</td>
-      <td>Contact</td>
-      <td>Photo</td>
-      <td>Status</td>
-      <td>Action</td>
+      <th>Sl.No</th>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th>Seller</th>
+      <th>Contact</th>
+      <th>Photo</th>
+      <th>Status</th>
+      <th>Action</th>
     </tr>
     <?php
     $selQry="select * from tbl_booking b inner join tbl_cart c on c.booking_id=b.booking_id inner join tbl_product p on p.product_id=c.product_id inner join tbl_shop s on s.shop_id=p.shop_id where user_id=".$_SESSION['uid'];

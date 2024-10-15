@@ -65,75 +65,82 @@ if (isset($_GET['eid'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        #categoryGetInfo {
-            border-spacing: 0 10px;
-        }
-        #categoryInfoTable th, #categoryInfoTable td {
-            text-align: center;
-            border: 1px solid black;
-        }
         .error {
             color: red;
             font-size: 14px;
         }
+        .table-wrapper {
+            max-width: 800px;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
-<h1 align="center">Category Page</h1>
-<form id='category' name='category' method='post' action=''>
-    <table width='300' align="center" id='category_GetInfo'>
-        <tr>
-            <td><strong>Category</strong></td>
-            <td>
-                <label for='category_txt'></label>
-                <input type="text" name="txt_category" id="txt_category" value="<?php echo htmlspecialchars($category); ?>" />
-                <input type="hidden" name="txt_eid" id="txt_eid" value="<?php echo $eid; ?>" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan='2' align='center'>
-                <input type='submit' name='btn_submit' id='btn_submit' value="SAVE" />
-            </td>
-        </tr>
-    </table>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Add / Edit Category</h5>
+            </div>
+            <div class="card-body">
+                <form id='category' name='category' method='post' action=''>
+                    <div class="mb-3">
+                        <label for="txt_category" class="form-label">Category</label>
+                        <input type="text" class="form-control" name="txt_category" id="txt_category" value="<?php echo htmlspecialchars($category); ?>" />
+                        <input type="hidden" name="txt_eid" id="txt_eid" value="<?php echo $eid; ?>" />
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type='submit' class='btn btn-primary' name='btn_submit' id='btn_submit'>Save</button>
+                    </div>
+                </form>
 
-    <?php if (!empty($errors)): ?>
-        <div class="error">
-            <?php foreach ($errors as $error): ?>
-                <p><?php echo htmlspecialchars($error); ?></p>
-            <?php endforeach; ?>
+                <?php if (!empty($errors)): ?>
+                    <div class="alert alert-danger mt-3">
+                        <?php foreach ($errors as $error): ?>
+                            <p><?php echo htmlspecialchars($error); ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
-    <?php endif; ?>
 
-    <p>&nbsp;</p>
-</form>
+        <div class="table-wrapper mt-5">
+            <table class='table table-bordered table-striped'>
+                <thead class="table-dark">
+                    <tr>
+                        <th>SL NO</th>
+                        <th>CATEGORY</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $selQry = "SELECT * FROM tbl_category";
+                    $result = $con->query($selQry);
+                    $i = 0;
+                    while ($row = $result->fetch_assoc()) {
+                        $i++;
+                        ?>
+                        <tr align="center">
+                            <td><?php echo $i; ?></td>
+                            <td><?php echo htmlspecialchars($row["category_name"]); ?></td>
+                            <td>
+                                <a href="category.php?did=<?php echo $row['category_id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="category.php?eid=<?php echo $row['category_id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mt-3">
+            <a href="Homepage.php" class="btn btn-secondary">Home</a>
+        </div>
+    </div>
 
-<table id='categoryInfoTable' width='400' align='center'>
-    <tr>
-        <th>SL NO</th>
-        <th>CATEGORY</th>
-        <th>ACTION</th>
-    </tr>
-    <?php
-    $selQry = "SELECT * FROM tbl_category";
-    $result = $con->query($selQry);
-    $i = 0;
-    while ($row = $result->fetch_assoc()) {
-        $i++;
-        ?>
-        <tr align="center">
-            <td><?php echo $i; ?></td>
-            <td><?php echo htmlspecialchars($row["category_name"]); ?></td>
-            <td>
-                <a href="category.php?did=<?php echo $row['category_id']; ?>">Delete </a> |
-                <a href="category.php?eid=<?php echo $row['category_id']; ?>"> Edit</a>
-            </td>
-        </tr>
-        <?php
-    }
-    ?>
-</table>
-<a href="aprofile.php" align="center">Home</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

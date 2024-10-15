@@ -157,7 +157,7 @@ if (isset($_POST["btn_submit"])) {
         />
       </div>
       <div class="form-group">
-        <label for="">Proof</label>
+        <label for="">Proof</label><br>
         <input type="file" name="filephoto" id="filephoto">
       </div>
 

@@ -166,7 +166,7 @@ if (isset($_GET['pid'])) {
         </table>
         
         <div class="text-center mt-3">
-            <a href="sellerProfile.php" class="btn btn-secondary">Home</a>
+            <a href="Homepage.php" class="btn btn-secondary">Home</a>
         </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

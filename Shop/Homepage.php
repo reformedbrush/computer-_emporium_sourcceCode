@@ -46,7 +46,7 @@ include("Head.php");
                 </div>
               </div>
             </div>
-            <div class="col-md-6 grid-margin transparent">
+            <!-- <div class="col-md-6 grid-margin transparent">
               <div class="row">
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
@@ -130,8 +130,8 @@ include("Head.php");
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
+          </div> -->
+          <!-- <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card position-relative">
                 <div class="card-body">
@@ -216,8 +216,8 @@ include("Head.php");
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="carousel-item">
+                      </div> -->
+                      <!-- <div class="carousel-item">
                         <div class="row">
                           <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
                             <div class="ml-xl-4 mt-3">
@@ -310,7 +310,7 @@ include("Head.php");
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="col-md-7 grid-margin stretch-card">
               <div class="card">
