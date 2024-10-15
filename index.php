@@ -86,8 +86,8 @@
 
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
-						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
+						<h2 class="mb-4 section-title">Crafted with excellence</h2>
+						<p class="mb-4">High-performance, pre-built desktop designed for gamers, featuring sleek cases, powerful components, efficient cooling, and customizable RGB lighting. It offers smooth gameplay, excellent graphics, and easy upgrades. </p>
 						<p><a href="shop.html" class="btn">Explore</a></p>
 					</div> 
 					<!-- End Column 1 -->
@@ -125,7 +125,7 @@
 						<a class="product-item" href="cart.html">
 							<img src="Assets/Templates/Main/images/p2.png" class="img-fluid product-thumbnail">
 							<h3 class="product-title">Machine 3</h3>
-							<strong class="product-price">₹24300.00</strong>
+							<strong class="product-price">₹243000.00</strong>
 
 							<span class="icon-cross">
 								<img src="Assets/Templates/Main/images/cross.svg" class="img-fluid">
@@ -214,8 +214,8 @@
 						</div>
 					</div>
 					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Make Interior Design</h2>
-						<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+						<h2 class="section-title mb-4">We Make Your Life Easy</h2>
+						<p>ideal for both gaming and editing, offering high-performance components like powerful CPUs and GPUs for smooth gameplay and efficient video or photo editing. With ample RAM and fast storage, it handles multitasking, rendering, and graphic-intensive tasks seamlessly, making it perfect for creators and gamers alike.</p>
 
 						<ul class="list-unstyled custom-list my-4">
 							<li>Donec vitae odio quis nisl dapibus malesuada</li>
@@ -506,9 +506,9 @@
 
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
+									<li><a href="#">Machine 1</a></li>
+									<li><a href="#">Machine 2</a></li>
+									<li><a href="#">Machine 3</a></li>
 								</ul>
 							</div>
 						</div>
@@ -519,7 +519,7 @@
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
+							<p class="mb-2 text-center text-lg-start">Copyright TECH Shack&copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; </a>  <!-- License information: https://untree.co/license/ -->
             </p>
 						</div>
 
@@ -544,4 +544,3 @@
 	</body>
 
 </html>
-Furni
