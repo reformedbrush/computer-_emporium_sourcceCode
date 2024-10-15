@@ -11,9 +11,6 @@ if (isset($_POST["btn_submit"])) {
   
   $insQry = "insert into tbl_user(user_name,user_email,user_password,place_id,user_address,user_number) values('".$name."','".$email."','".$password."','".$place."','".$address."','".$contact."')";
   
-  if ($con->query($insQry)) {
-    echo "Inserted successfully!";
-  }
 }
 
 if (isset($_GET['did'])) {
@@ -94,7 +91,8 @@ if (isset($_GET['did'])) {
           name="txt_email" 
           id="txt_email" 
           required 
-          title="Please enter a valid email address" 
+          title="Please enter a valid email address"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
         />
       </div>
 
