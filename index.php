@@ -39,7 +39,7 @@
 				<div class="collapse navbar-collapse" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="index.php">Home</a>
 						</li>
 						<li><a class="nav-link" href="Guest/user_reg.php">User Registration</a></li>
 						<li><a class="nav-link" href="Guest/shop_reg.php">Seller Registration</a></li>
@@ -66,7 +66,7 @@
 							<div class="intro-excerpt">
 								<h1>Modern Tech <span clsas="d-block">Super Store</span></h1>
 								<p class="mb-4">Discover top-tier tech products, from smartphones to smart home devices, all at competitive prices. Shop now for the newest innovations and elevate your digital experience!</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<p><a href="User/SearchProduct.php" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">

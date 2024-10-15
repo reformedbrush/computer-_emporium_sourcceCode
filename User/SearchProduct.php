@@ -1,6 +1,6 @@
 <?php
 ob_start();
-// include("Head.php");
+include("Head.php");
 include("../Assets/Connection/Connection.php");
 ?>
 
@@ -201,7 +201,7 @@ function changeSub()
         </script>
     </body>
 <?php
-// include("Foot.php");
+include("Foot.php");
 ob_flush();
 ?>
 </html>

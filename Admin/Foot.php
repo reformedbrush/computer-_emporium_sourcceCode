@@ -23,8 +23,8 @@
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="../Assets/Templates/Admin/vendors/chart.js/Chart.min.js"></script>
-  <script src="../Assets/Templates/Admin/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="../Assets/Templates/Admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <!-- <script src="../Assets/Templates/Admin/vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="../Assets/Templates/Admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script> -->
   <script src="../Assets/Templates/Admin/js/dataTables.select.min.js"></script>
 
   <!-- End plugin js for this page -->

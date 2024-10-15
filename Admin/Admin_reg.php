@@ -27,10 +27,11 @@ if(isset($_POST["btn_submit"]))
 	    alert("Data Inserted..")
 	    window.location="Admin_reg.php";
 	    </script>
+      <?php
 	}
 	  
 }
-<?php
+
 if(isset($_GET['did'])) {
   $did = $_GET['did'];
   $delQry="delete from tbl_admin where admin_id = ".$did;
@@ -39,8 +40,7 @@ if(isset($_GET['did'])) {
     exit();
   }
 }
-}
-}
+
 ?>
 </head>
 

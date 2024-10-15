@@ -53,48 +53,78 @@ if (isset($_GET['eid'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page District</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page District</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .form-table {
+            margin-bottom: 20px;
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-<form id='District' name='District' method='post' action='' align="center">
-  <table width='300' id='districtGetInfo'>
-    <tr>
-      <td><strong>District</strong></td>
-      <td>
-        <input type="text" name="txt_dist" id="txt_dist" value="<?php echo htmlspecialchars($district); ?>" required pattern="^[A-Z][a-z]*(?: [A-Z][a-z]*)*$" title="District name should start with an uppercase letter and contain only alphabets and spaces." />
-        <input type="hidden" name="txt_eid" id="txt_eid" value="<?php echo $eid; ?>" />
-      </td>
-    </tr>
-    <tr>
-      <td colspan='2'><input type='submit' name='btn_submit' id='btn_submit' value="SAVE" /></td>
-    </tr>
-  </table>
-  <p>&nbsp;</p>
-  <table id='districtInfoTable' width='400' style='border-collapse: collapse; width:50%' align='center'>
-    <tr>
-      <th>SL NO</th>
-      <th>DISTRICT</th>
-      <th>ACTION</th>
-    </tr>
-    <?php
-      $selQry = "select * from tbl_district";
-      $result = $con->query($selQry);
-      $i = 0;
-      while ($row = $result->fetch_assoc()) { $i++;
-    ?>
-      <tr>
-        <td><?php echo $i; ?></td>
-        <td><?php echo htmlspecialchars($row["district_name"]); ?></td>
-        <td>
-          <a href="District.php?did=<?php echo $row['district_id']; ?>">Delete</a> | 
-          <a href="District.php?eid=<?php echo $row['district_id']; ?>">Edit</a>
-        </td>
-      </tr>
-    <?php } ?>
-  </table>
-  <a href="aprofile.php">Home</a>
-</form>
+    <div class="container">
+        <h2 class="mb-4">District Management</h2>
+
+        <form id='District' name='District' method='post' action=''>
+            <table class='table table-bordered form-table'>
+                <tr>
+                    <td><strong>District</strong></td>
+                    <td>
+                        <input type="text" name="txt_dist" id="txt_dist" value="<?php echo htmlspecialchars($district); ?>" required pattern="^[A-Z][a-z]*(?: [A-Z][a-z]*)*$" title="District name should start with an uppercase letter and contain only alphabets and spaces." class="form-control" />
+                        <input type="hidden" name="txt_eid" id="txt_eid" value="<?php echo $eid; ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><input type='submit' name='btn_submit' id='btn_submit' value="SAVE" class="btn btn-primary" /></td>
+                </tr>
+            </table>
+        </form>
+
+        <table id='districtInfoTable' class='table table-bordered' width='400'>
+            <thead>
+                <tr>
+                    <th>SL NO</th>
+                    <th>DISTRICT</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $selQry = "SELECT * FROM tbl_district";
+                $result = $con->query($selQry);
+                $i = 0;
+                while ($row = $result->fetch_assoc()) { $i++;
+                ?>
+                <tr>
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo htmlspecialchars($row["district_name"]); ?></td>
+                    <td>
+                        <a href="District.php?did=<?php echo $row['district_id']; ?>" class="btn btn-danger btn-sm">Delete</a> 
+                        <a href="District.php?eid=<?php echo $row['district_id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <a href="aprofile.php" class="btn btn-secondary mt-3">Home</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

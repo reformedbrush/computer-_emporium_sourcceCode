@@ -5,6 +5,10 @@
 * Template URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
+<?php
+ob_start();
+include("Head.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,7 +31,7 @@
 	<body>
 
 		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+		<!-- <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
 				<a class="navbar-brand" href="index.html">TECHe<span>.</span></a>
@@ -55,7 +59,7 @@
 				</div>
 			</div>
 				
-		</nav>
+		</nav> -->
 		<!-- End Header/Navigation -->
 
 		<!-- Start Hero Section -->
@@ -544,3 +548,7 @@
 	</body>
 
 </html>
+<?php
+        include("Foot.php");
+        ob_flush();
+        ?>

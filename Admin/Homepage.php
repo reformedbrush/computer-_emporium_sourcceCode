@@ -90,7 +90,7 @@ include("Head.php");
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
+           <!--  <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Order Details</p>
@@ -116,7 +116,7 @@ include("Head.php");
                   <canvas id="order-chart"></canvas>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -131,7 +131,7 @@ include("Head.php");
               </div>
             </div>
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card position-relative">
                 <div class="card-body">
@@ -310,7 +310,7 @@ include("Head.php");
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="col-md-7 grid-margin stretch-card">
               <div class="card">
@@ -375,7 +375,7 @@ include("Head.php");
                 </div>
               </div>
             </div>
-            <div class="col-md-5 grid-margin stretch-card">
+           <!--  <div class="col-md-5 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
 									<h4 class="card-title">To Do Lists</h4>
@@ -434,7 +434,7 @@ include("Head.php");
 									</div>
 								</div>
 							</div>
-            </div>
+            </div> -->
           </div>
           <div class="row">
             <div class="col-md-4 stretch-card grid-margin">

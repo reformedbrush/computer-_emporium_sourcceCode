@@ -6,7 +6,7 @@ $selqry="select * from tbl_subcategory where category_id='".$_GET["did"]."'";;
 		while($row=$re->fetch_assoc())
 		{
 			?>
-            <option value="<?php echo $row["subcategory_id"]; ?>"><?php echo $row["subcategory_name"]; ?></option>
+            <option value="<?php echo $row["subCategory_id"]; ?>"><?php echo $row["subCategory_name"]; ?></option>
             <?php
 		} 
 		?>

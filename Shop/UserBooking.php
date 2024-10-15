@@ -23,7 +23,7 @@ include("../Assets/Connection/Connection.php");
       <td>Action</td>
     </tr>
     <?php
-    $selQry="select * from tbl_booking b inner join tbl_cart c on c.booking_id=b.booking_id inner join tbl_product p on p.product_id=c.product_id inner join tbl_user u on u.user_id=b.user_id where booking_status>1 and shop_id=".$_SESSION['sid']." group by b.booking_id";
+    echo $selQry="select * from tbl_booking b inner join tbl_cart c on c.booking_id=b.booking_id inner join tbl_product p on p.product_id=c.product_id inner join tbl_user u on u.user_id=b.user_id where booking_status>1 and shop_id=".$_SESSION['sid']." group by b.booking_id";
       $result = $con->query($selQry);
       $i = 0;
       while ($rowpr = $result->fetch_assoc()) { $i++;
