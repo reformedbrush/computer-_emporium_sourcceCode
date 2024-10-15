@@ -8,7 +8,7 @@ if(isset($_GET["aid"]))
     {
         echo "<script>
             alert('Shop Verified')
-            window.location='NewSHop.php'
+            window.location='rejectedShop.php'
         </script>";
     }
 }
@@ -67,7 +67,7 @@ if(isset($_GET["aid"]))
             </thead>
             <tbody>
                 <?php
-                $shop = "SELECT * FROM tbl_shop WHERE shop_status=0";
+                $shop = "SELECT * FROM tbl_shop WHERE shop_status=2";
                 $res = $con->query($shop);
                 while ($data = $res->fetch_assoc()) {
                     ?>
@@ -76,7 +76,7 @@ if(isset($_GET["aid"]))
                         <td><?php echo $data['shop_name']; ?></td>
                         <td><?php echo $data['shop_address']; ?></td>
                         <td><?php echo $data['shop_contact']; ?></td>
-                        <td><?php echo $data['shop_proof']; ?></td>
+                        <td><a href="../Assets/Files/Shop/<?php echo $data['shop_proof']; ?>" target="_blank" rel="noopener noreferrer">Proof</a></td>
                         <td class="action-links">
                             <a href="NewShop.php?aid=<?php echo $data['shop_id']; ?>" class="btn btn-success btn-sm">Accept</a>
                         </td>
@@ -88,6 +88,8 @@ if(isset($_GET["aid"]))
         </table>
 
         <a href="Homepage.php" class="btn btn-primary mt-3">Home</a>
+        <a href="NewShop.php" class="btn btn-primary mt-3">New Request</a>
+        <a href="verifiedShop.php" class="btn btn-primary mt-3">Verified Request</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

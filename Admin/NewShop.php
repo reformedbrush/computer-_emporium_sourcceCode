@@ -100,6 +100,8 @@ if(isset($_GET["rid"]))
         </table>
 
         <a href="Homepage.php" class="btn btn-primary mt-3">Home</a>
+        <a href="verifiedShop.php" class="btn btn-primary mt-3">Verified Request</a>
+        <a href="rejectedShop.php" class="btn btn-primary mt-3">Rejected Request</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

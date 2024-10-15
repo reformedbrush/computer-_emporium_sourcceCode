@@ -10,7 +10,7 @@ if(isset($_GET["rid"]))
     {
         echo "<script>
             alert('Shop Verified')
-            window.location='NewSHop.php'
+            window.location='verifiedShop.php'
         </script>";
     }
 }
@@ -76,7 +76,7 @@ if(isset($_GET["rid"]))
                         <td><?php echo $data['shop_name']; ?></td>
                         <td><?php echo $data['shop_address']; ?></td>
                         <td><?php echo $data['shop_contact']; ?></td>
-                        <td><?php echo $data['shop_proof']; ?></td>
+                        <td><a href="../Assets/Files/Shop/<?php echo $data['shop_proof']; ?>" target="_blank" rel="noopener noreferrer">Proof</a></td>
                         <td class="action-links">
                             <a href="NewShop.php?rid=<?php echo $data['shop_id']; ?>" class="btn btn-danger btn-sm">Reject</a>
                         </td>
@@ -88,6 +88,8 @@ if(isset($_GET["rid"]))
         </table>
 
         <a href="Homepage.php" class="btn btn-primary mt-3">Home</a>
+        <a href="NewShop.php" class="btn btn-primary mt-3">New Request</a>
+        <a href="rejectedShop.php" class="btn btn-primary mt-3">Rejected Request</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -121,7 +121,7 @@ if (isset($_GET['eid'])) {
             </tbody>
         </table>
 
-        <a href="aprofile.php" class="btn btn-secondary mt-3">Home</a>
+        <a href="Homepage.php" class="btn btn-secondary mt-3">Home</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
