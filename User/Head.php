@@ -1,3 +1,6 @@
+<?php
+include("SessionValidator.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,7 +40,7 @@
 						<li><a class="nav-link" href="SearchProduct.php">Shop</a></li>
 						<li><a class="nav-link" href="about.php">About us</a></li>
 						<li><a class="nav-link" href="MyBooking.php">My Orders</a></li>
-						<!-- <li><a class="nav-link" href="blog.html">Blog</a></li>
+						<li><a class="nav-link" href="../Guest/LogOut.php">Logout</a></li>
 						<li><a class="nav-link" href="contact.html">Contact us</a></li> -->
 					</ul>
 

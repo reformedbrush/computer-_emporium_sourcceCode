@@ -138,6 +138,7 @@ if (isset($_GET['pid'])) {
                     <th>PRODUCT</th>
                     <th>PRICE</th>
                     <th>PHOTO</th>
+                    <!-- <th>STOCK</th> -->
                     <th>ACTIONS</th>
                 </tr>
             </thead>
@@ -154,9 +155,10 @@ if (isset($_GET['pid'])) {
                         <td><?php echo $row["product_name"]; ?></td>
                         <td><?php echo $row["product_price"]; ?></td>
                         <td><img src="../Assets/Files/Product/<?php echo $row["product_photo"]; ?>" class="img-thumbnail" alt="Product Image"></td>
-                        <td class="action-links">
+                        <!-- <td><?php //echo $row['stock_qty'] ?></td> -->
+                        <td class="action-links" align="center ">
                             <a href="product.php?pid=<?php echo $row['product_id']; ?>" class="btn btn-danger btn-sm">Delete</a>
-                            <!-- <a href="product.php?eid=<?php echo $row['product_id']; ?>" class="btn btn-primary btn-sm">Edit</a> -->
+                            <a href="Stock.php?asid=<?php echo $row['product_id']; ?>" class="btn btn-primary btn-sm">Manage Stock</a>
                         </td>
                     </tr>
                     <?php

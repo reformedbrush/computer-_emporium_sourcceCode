@@ -1,3 +1,6 @@
+<?php
+include("SessionValidator.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 

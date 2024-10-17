@@ -1,3 +1,6 @@
+<?php
+include("SessionValidator.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +106,7 @@
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a class="dropdown-item">
+              <a href="../Guest/LogOut.php" class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
